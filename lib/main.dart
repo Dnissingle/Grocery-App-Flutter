@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:get_storage/get_storage.dart';
 import 'controllers/cart_controller.dart';
 import 'controllers/product_controller.dart';
+import 'controllers/profile_controller.dart';
 import 'controllers/main_controller.dart';
 import 'views/main_screen.dart';
 import 'views/checkout/payment_success_view.dart';
@@ -13,6 +14,7 @@ void main() async {
   await GetStorage.init();
   
   // Initialize Controllers
+  Get.put(ProfileController());
   Get.put(MainController());
   Get.put(ProductController());
   Get.put(CartController());
