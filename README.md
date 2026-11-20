@@ -60,6 +60,7 @@ The app is currently configured for the **eSewa UAT (Testing)** environment. Use
 - **Mobile Number**: `9806000000`
 - **Password**: `test@123`
 - **MPIN**: `1122`
+- **OTP**: `123456`
 
 > **Note**: For production, move signature generation to a secure backend server and update the endpoints and secret keys in `lib/screens/esewa_payment_screen.dart`.
 
@@ -85,6 +86,40 @@ lib/
 - **Primary Color**: Crisp Green (`0xFF2E7D32`)
 - **Secondary Color**: Warm Orange (`0xFFF57C00`)
 - **Font**: Poppins (via Google Fonts)
+
+## 🌐 Hosting & Deployment
+
+### 1. Web Hosting (Firebase Hosting)
+Ideal for showcasing the responsive web version of the app.
+1. Build for web:
+   ```bash
+   flutter build web --release
+   ```
+2. Initialize Firebase (if not already):
+   ```bash
+   firebase init hosting
+   ```
+   - Select `build/web` as the public directory.
+   - Configure as a single-page app (Yes).
+3. Deploy:
+   ```bash
+   firebase deploy
+   ```
+
+### 2. Web Hosting (GitHub Pages)
+1. Build for web with base-href (replace `<repo-name>`):
+   ```bash
+   flutter build web --release --base-href "/<repo-name>/"
+   ```
+2. Deploy the contents of `build/web` to the `gh-pages` branch.
+
+### 3. Android Distribution
+To share the app for testing:
+1. Build the APK:
+   ```bash
+   flutter build apk --release
+   ```
+2. Share the file found at: `build/app/outputs/flutter-apk/app-release.apk`.
 
 ## 📄 License
 
